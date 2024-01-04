@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 
 export function Projects() {
+   const githubAccessToken = process.env.REACT_APP_GITHUB_ACCESS_TOKEN;
+   console.log(githubAccessToken);
    
   const [projects, setProjects] = useState([]);
 
@@ -11,7 +13,7 @@ export function Projects() {
         const response = await fetch('https://api.github.com/users/usecodeto/repos', {
           method: "GET",
           headers: {
-            "Authorization": "token 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",
+            "Authorization": "token " + githubAccessToken,
           },
         });
 
